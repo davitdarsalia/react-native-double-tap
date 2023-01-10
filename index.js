@@ -13,6 +13,8 @@ export default class DoubleTap extends Component {
     this.lastTime = new Date();
     // a timer is used to run the single tap event
     this.timer = false;
+
+    this.activeOpacity = props.activeOpacity
   }
 
   _onTap = () => {
@@ -52,7 +54,7 @@ export default class DoubleTap extends Component {
 
   render() {
     return (
-      <TouchableOpacity onPress={this._onTap}>
+      <TouchableOpacity activeOpacity={this.activeOpacity} onPress={this._onTap}>
         {this.props.children}
       </TouchableOpacity>
     );
